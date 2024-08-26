@@ -1,12 +1,13 @@
 import axios from "axios";
 import Wallet from "./lib/Wallets/wallet";
+import Self from "./lib/Self/self";
 /** 
  * @class VirtualWallet
  */
 
 class VirtualWallet{
-     wallet=Wallet
-
+     static wallet=Wallet
+     static self= Self
      // public Bank
     /**
      * 
@@ -19,6 +20,7 @@ class VirtualWallet{
         axios.defaults.headers["Content-type"]="application/json";
         axios.defaults.baseURL=options.origin?'https://sandbox.wallets.africa/': 'https://api.wallets.africa/';
         this.wallet.secretKey=options.secretKey
+        this.self.secretKey=options.secretKey
     }
 }
 export default VirtualWallet
